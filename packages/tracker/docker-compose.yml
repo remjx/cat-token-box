@@ -1,6 +1,7 @@
 services:
   postgres:
     image: postgres:16
+    platform: linux/amd64
     shm_size: 1g
     restart: always
     environment:
@@ -14,6 +15,7 @@ services:
       - ./docker/pgdata:/var/lib/postgresql/data
   bitcoind:
     image: fractalbitcoin/fractal:v0.2.1
+    platform: linux/amd64
     restart: always
     entrypoint: ["bitcoind", "-datadir=/data/"]
     healthcheck:
